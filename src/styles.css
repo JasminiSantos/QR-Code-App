@@ -1,0 +1,124 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --font-color: 230 35% 7%;
+    --card-background-color: 210, 100%, 42%;
+}
+body {
+    color: hsl(var(--font-color));
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+.section {
+    padding: 2em 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+}
+.container {
+    margin-inline: auto;
+    max-width: 75rem;
+    width: 85%;
+}
+.input__group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+}
+input {
+    width: 100%;
+    padding: 1em 0.75em;
+    border: 1px solid #444343;
+    border-radius: 3px;
+    margin-bottom: 2em;
+    margin-top: 0.75em;
+}
+button {
+    border: unset;
+    background: hsl(231, 77%, 90%);
+    padding: 1em 0.75em;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #404040;
+    }
+.logo {
+    content: url('./images/Logo-Mobile.svg');
+}
+form {
+    order: 2;
+}
+.logo {
+    order: 1;
+    align-self: center;
+}
+
+/* @media screen and (max-width: 768px) {
+    .qrcode__container{
+        display: flex;
+        flex-direction: column;
+    }
+    .qrcode {
+        order: 2;
+    }
+    .logo {
+        order: 1;
+        align-self: center;
+    }
+} */
+@media screen and (min-width: 768px) {
+    .logo {
+        content: url('./images/Logo-Desktop.svg');
+    }
+
+  .section {
+    padding: 0;
+  }
+  input {
+    margin: 0;
+  }
+  .qrcode__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: hsl(var(--card-background-color));;
+    padding: 50px;
+    width: 55em;
+    height: 40em;
+  }
+  .qrcode {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background: #ffffff;
+    }
+  .input__group {
+    margin-left: 3em;
+    display: flex;
+    flex-direction: column;
+  }
+  .logo {
+    width: 14em;
+    align-self: center;
+    margin-bottom: 3em;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    margin-bottom: 2em;
+    margin-top: 0.75em;
+    font-size: 1rem;
+  }
+}
