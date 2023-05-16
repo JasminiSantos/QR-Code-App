@@ -60,7 +60,8 @@ const QrCode = () => {
        <div className="qrcode" ref={qrRef}>{qrcode}</div>
       <div className="input__group">
         <img className="logo" src={logo} alt="Logo" />
-        <form onSubmit={handleDownloadQRCode}>
+      </div>
+      <form onSubmit={handleDownloadQRCode}>
           <input
             id="urlInput"
             type="text"
@@ -68,11 +69,15 @@ const QrCode = () => {
             onChange={handleQRCodeEncoder}
             placeholder="https://jasminisantos.netlify.app/"
           />
-          <button type="submit" disabled={!url}>
-            Download QR code
-          </button>
+          <div className="button__container">
+            <button className="dark__button" type="submit" disabled={!url}>
+              Download QR code
+            </button>
+            <button className="blue__button" type="file" accept="image/*" capture>
+              Read QR Code
+            </button>
+          </div>
         </form>
-      </div>
     </div>
   );
 };

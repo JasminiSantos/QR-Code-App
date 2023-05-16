@@ -7,7 +7,7 @@
 }
 :root {
     --font-color: 230 35% 7%;
-    --card-background-color: 210, 100%, 42%;
+    --blue-color: 210, 100%, 42%;
 }
 body {
     color: hsl(var(--font-color));
@@ -40,7 +40,7 @@ input {
     margin-bottom: 2em;
     margin-top: 0.75em;
 }
-button {
+.dark__button {
     border: unset;
     background: hsl(231, 77%, 90%);
     padding: 1em 0.75em;
@@ -49,31 +49,46 @@ button {
     text-transform: uppercase;
     font-weight: bold;
     background-color: #404040;
-    }
+}
+.blue__button {
+    border: unset;
+    padding: 1em 0.75em;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: hsl(var(--blue-color));
+}
+.button__container {
+    display: flex;
+    flex-direction: column;
+}
+.button__container button:first-child {
+    margin-bottom: 1.5em;
+} 
 .logo {
     content: url('./images/Logo-Mobile.svg');
 }
-form {
-    order: 2;
-}
-.logo {
-    order: 1;
-    align-self: center;
-}
-
-/* @media screen and (max-width: 768px) {
-    .qrcode__container{
-        display: flex;
-        flex-direction: column;
-    }
-    .qrcode {
-        order: 2;
-    }
+@media screen and (max-width: 768px) {
     .logo {
         order: 1;
-        align-self: center;
     }
-} */
+    .qrcode__container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .qrcode {
+        order: 3;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        margin: 2em 0;
+        order: 4;
+    }
+}
 @media screen and (min-width: 768px) {
     .logo {
         content: url('./images/Logo-Desktop.svg');
@@ -88,10 +103,11 @@ form {
   .qrcode__container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    background-color: hsl(var(--card-background-color));;
+    background-color: hsl(var(--blue-color));;
     padding: 50px;
     width: 55em;
     height: 40em;
@@ -99,26 +115,37 @@ form {
   .qrcode {
     display: flex;
     justify-content: center;
-    padding: 10px;
     background: #ffffff;
+    padding: 2.5em 0;
+    grid-row: 1 / 3;
     }
   .input__group {
-    margin-left: 3em;
     display: flex;
-    flex-direction: column;
+    align-self: center;
   }
   .logo {
     width: 14em;
     align-self: center;
     margin-bottom: 3em;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
   }
   form {
     display: flex;
     flex-direction: column;
+    align-self: center;
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
   }
   input {
     margin-bottom: 2em;
     margin-top: 0.75em;
     font-size: 1rem;
+    width: 90%;
+    align-self: center;
   }
+
+  .blue__button {
+    display: none;
+}
 }
