@@ -39,7 +39,7 @@ const QRCodeReader = ({isScannerVisible}) => {
             style={{ width: "300px" }}
             legacyMode={true}
           />
-          {/* <StopButton/> */}
+          <StopButton/>
         </>
     )}
     {data !== "" && <p>{data}</p>}
