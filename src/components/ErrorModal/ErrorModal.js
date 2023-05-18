@@ -1,12 +1,13 @@
 import React from 'react';
 import "./styles.css";
-import { useState } from 'react';
+import APIContext from '../../ContextAPI/APIContext';
+import { useContext } from 'react';
 
-const ErrorModal = ({ onClose }) => {
-  const [isOpen, setIsOpen] = useState(true);
+const ErrorModal = () => {
+  const { isOpenModal, setIsOpenModal} = useContext(APIContext);
 
-  const handleClose = () => {
-    setIsOpen(false);
+  const handleClosedModal = () => {
+    setIsOpenModal(false);
   };
 
   return (
@@ -14,7 +15,7 @@ const ErrorModal = ({ onClose }) => {
       <h2>Invalid Link</h2>
       <p>Oops! The link you clicked is invalid.</p>
       <p>Please double-check the URL and try again.</p>
-      <button onClick={handleClose}>Close</button>
+      <button onClick={handleClosedModal}>Close</button>
     </div>
   );
 };
