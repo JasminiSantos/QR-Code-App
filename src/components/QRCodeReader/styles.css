@@ -1,0 +1,32 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --font-color: 230 35% 7%;
+    --blue-color: 210, 100%, 42%;
+}
+.qr-scanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.75em;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+  }
+  
+.qr-scanner-frame {
+    border: 1px dashed #444343; /* Example border style */
+    padding: 10px; /* Adjust padding as needed */
+    width: 300px; /* Adjust width as needed */
+    height: 300px; /* Adjust height as needed */
+    background-color: #444343;
+}
