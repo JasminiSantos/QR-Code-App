@@ -67,7 +67,7 @@ input {
     margin-bottom: 1.5em;
 } 
 .logo {
-    content: url('./images/Logo-Mobile.svg');
+    content: url('./Assets/Logo-Mobile.svg');
 }
 #qrCode{
     padding: 1.5em;
@@ -85,6 +85,8 @@ input {
         margin: 0 auto;
     }
     .qrcode {
+        display: flex;
+        align-self: center;
         order: 2;
     }
     form {
@@ -95,10 +97,15 @@ input {
         margin: 2em 0;
         order: 3;
     }
+    .scanner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 }
 @media screen and (min-width: 768px) {
     .logo {
-        content: url('./images/Logo-Desktop.svg');
+        content: url('./Assets/Logo-Desktop.svg');
     }
 
   .section {
