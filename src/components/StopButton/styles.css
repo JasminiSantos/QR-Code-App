@@ -1,0 +1,19 @@
+.stop-button {
+    background-color: #ff0000;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .stop-button:hover {
+    background-color: #cc0000;
+  }
+  
+  .stop-icon {
+    color: #ffffff;
+    font-size: 20px;
+  }
