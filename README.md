@@ -8,6 +8,9 @@ The QR Code Generator allows you to create a QR code for a given link. Simply en
 ## QR Code Scanner
 The QR Code Scanner feature enables you to scan QR codes using your device's camera. Upon scanning a QR code, the application will automatically redirect you to the corresponding link.
 
+<img width="700px" alt="desktop version of the app" src="public/desktop.png">
+<img width="165px" alt="mobile version of the app" src="public/mobile.png">
+
 ## Available Scripts
 In the project directory, you can run:
 
