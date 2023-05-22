@@ -1,12 +1,13 @@
 .stop-button {
     background-color: #ff0000;
     border: none;
-    padding: 10px;
+    padding: 1em;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 4.5em;
   }
   
   .stop-button:hover {
