@@ -1,20 +1,34 @@
 // src/components/QrCode.js
 
-import { useState, useRef} from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import logo from '../Assets/Logo-Desktop.svg';
 import QRCodeReader from './QRCodeReader/QRCodeReader'
 import ErrorModal from "./ErrorModal/ErrorModal";
 import validator from 'validator'
-import { useContext } from "react";
 import APIContext from "../ContextAPI/APIContext";
-import axios from "axios";
 
 const QrCode = () => {
   // Properties and functions that handle the qr code generator
+  const { isOpenModal, setIsOpenModal, isScannerVisible, setIsScannerVisible} = useContext(APIContext);
   const [url, setUrl] = useState("");
   const qrRef = useRef();
+  const [isMobile, setIsMobile] = useState(false)
 
+  function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  }
+
+  useEffect(() => {
+    if (isMobileDevice()) {
+      setIsMobile(true)
+      console.log("it is a mobile device");
+    } else {
+      console.log("QR code reader is only available on mobile devices.");
+    }
+  }, []);
+
+  // Properties and functions that handle the QR Code Generator
   const handleDownloadQRCode = (e) => {
     e.preventDefault();
     let canvas = qrRef.current.querySelector("canvas");
@@ -42,11 +56,15 @@ const QrCode = () => {
     />
   );
 
-  // Properties and functions that handle the button click of scanner button
-  const [isScannerVisible, setIsScannerVisible] = useState(false);
-
+  // function that handles the button press to show qr code scanner
   const handleButtonPress = () => {
-    setIsScannerVisible(true);
+    navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      setIsScannerVisible(true);
+    })
+    .catch(function (error) {
+      console.log('Error accessing camera:', error);
+    });
   };
 
   // Properties and functions that handle the url validation and error messages
@@ -66,14 +84,10 @@ const QrCode = () => {
     }
   };
 
-  // Properties and functions that handle the error modal
-
-  const { isOpenModal, setIsOpenModal} = useContext(APIContext);
-
+  // Function that handle the error modal
   const handleOpenModal = () => {
     setIsOpenModal(true);
   };
-
 
   return (
     <div className="qrcode__container">
@@ -93,13 +107,15 @@ const QrCode = () => {
             <button className="dark__button" type="submit" disabled={!url}>
               Download QR code
             </button>
-            <button className="blue__button" type="button" onClick={handleButtonPress}>
-              Read QR Code
-            </button>
-            <div className="scanner">
-              {isScannerVisible && <QRCodeReader isScannerVisible={isScannerVisible}/>}
+            {isMobile && <>
+              <button className="blue__button" type="button" onClick={handleButtonPress}>
+                Read QR Code
+              </button>
               {isOpenModal && <ErrorModal/>}
-            </div>
+              <div className="scanner">
+              {isScannerVisible && <QRCodeReader/>}
+              </div>
+            </>}
           </div>
         </form>
     </div>

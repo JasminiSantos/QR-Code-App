@@ -73,6 +73,7 @@ input {
     padding: 1.5em;
     background-color: #ffffff;
 }
+
 @media screen and (max-width: 768px) {
     .logo {
         order: 1;
@@ -97,11 +98,6 @@ input {
         margin: 2em 0;
         order: 3;
     }
-    .scanner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
 }
 @media screen and (min-width: 768px) {
     .logo {
