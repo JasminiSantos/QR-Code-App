@@ -11,6 +11,8 @@ The QR Code Scanner feature enables you to scan QR codes using your device's cam
 <img width="700px" alt="desktop version of the app" src="public/desktop.png">
 <img width="165px" alt="mobile version of the app" src="public/mobile.png">
 
+[Figma Design File](https://www.figma.com/file/Xq5eQDj4poydOYV1cyL82b/QR-Code-Generator)
+
 ## Available Scripts
 In the project directory, you can run:
 
